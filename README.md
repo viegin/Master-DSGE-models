@@ -1,2 +1,2 @@
 # Master-DSGE-models
-Dynare Codel for DSGE Models used in the Macro-Master course
+Dynare Codes for DSGE Models used in the Macro-Master course
