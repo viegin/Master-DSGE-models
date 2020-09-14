@@ -1,4 +1,4 @@
-// new keynesian model with taylor rule 
+// new keynesian model with taylor rule
 
 var i, x, p;
 varexo v g u;
@@ -9,16 +9,16 @@ psi = 0.1;
 beta = 0.99;
 lambda = 0.2;
 alpha = 0.85;
-a = 0.5 ; 
+a = 0.5 ;
 b = 1.5;
-rhov = 0.01; 
-rhog = 0.02; 
+rhov = 0.01;
+rhog = 0.02;
 rhou = 0.02;
 
 model(linear);
 i = a*x + b*p + v;
 x = alpha*x(-1)+(1-alpha)*x(+1) - psi*(i - p(+1))+ g;
-p = beta*(alpha*p(-1)+(1-alpha)*p(+1)) + lambda*x + u; 
+p = beta*(alpha*p(-1)+(1-alpha)*p(+1)) + lambda*x + u;
 
 end;
 
@@ -36,9 +36,9 @@ var g; stderr rhog;
 var u; stderr rhou;
 end;
 
-% stoch_simul(order=1,drop=0,periods=100,irf=10,nomoments) x p;
+stoch_simul(order=1,drop=0,periods=100,irf=10,nomoments) x p;
 
-% save data1 x p;
+save data1 x p;
 
 estimated_params;
   a,normal_pdf,8,0.5;
@@ -50,7 +50,6 @@ estimated_params;
  end;
 
 
-varobs x p i;
+varobs x p;
 
-estimation(datafile=data.xlsx,mode_compute=4,mh_nblocks=1,mode_check,mh_jscale=1,mh_replic=3000);
-   
+estimation(datafile=data1 ,mode_compute=4,mh_nblocks=1,mode_check,mh_jscale=1,mh_replic=3000);
